@@ -59,17 +59,28 @@ int main (void) {
 
 void tache1(void const* argument)
 {
-	char tab[200];
-	char texte[50];
-
+	char tab[100];
+	char texte[200];
+	int i;
+	i=0;
+	
 	while (1)
 	{
-		Driver_USART1.Receive(tab,200);
+		Driver_USART1.Receive(tab,100);
 		while(Driver_USART1.GetRxCount() < 1);
 		
-		sprintf(texte, "%c", tab[0]);
-		GLCD_DrawString(5,5,tab);
+
+		GLCD_DrawString(5,5+i*20,tab);
+		i++; if(i==11) i=0;
 		
+		
+		
+		if(tab[3]=='R' & tab[4]=='M' & tab[5]=='C')
+		{
+			GLCD_DrawString(5,20,tab);
+		}
+		
+		//osDelay(osWaitForever);
 	}
 	
 }
