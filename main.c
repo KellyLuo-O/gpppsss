@@ -73,14 +73,7 @@ void tache1(void const* argument)
 		GLCD_DrawString(5,5+i*20,tab);
 		i++; if(i==11) i=0;
 		
-		
-		
-		if(tab[3]=='R' & tab[4]=='M' & tab[5]=='C')
-		{
-			GLCD_DrawString(5,20,tab);
-		}
-		
-		//osDelay(osWaitForever);
+	
 	}
 	
 }
