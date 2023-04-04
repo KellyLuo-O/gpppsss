@@ -41,7 +41,6 @@ void Init_UART(void){
 	Driver_USART1.Control(ARM_USART_CONTROL_RX,1);
 }
 
-
 /*
  * main: initialize and start the system
  */
@@ -70,9 +69,12 @@ int main (void) {
 void tache1(void const* argument)
 {
 	char tab[1];
-	int i = 6;
-	char data[6];
+	int i=0;
+	int j, k;
+	char data[50];
 	char etat = 0;
+	char lat[9];
+	char lon[9];
 	
 	while (1)
 	{
@@ -83,49 +85,73 @@ void tache1(void const* argument)
 		switch (etat)
 		{
 			case 0 :
-				if (tab[0] == '$'){ data[0] = tab[0]; etat = 1; }
-				else { etat = 0;}
+				i=1;
+				data[0] = tab[0];
+				if (tab[0] == '$') etat = 1;
 				break;
-				
 			case 1 :
-				if (tab[0] == 'G'){ data[1] = tab[0]; etat = 2;}
-				else { etat = 0;}
+				data[i] = tab[0];
+				i++;
+				if ((data[3] == 'G') && (data[4] == 'G') && (data[5] == 'A')) etat = 2;
 				break;
 			case 2 :
-				if (tab[0] == 'P'){ data[2] = tab[0]; etat = 3;}
-				else { etat = 0;}
-				break;
-			case 3 :
-				if (tab[0] == 'G') {data[3] = tab[0]; etat = 4;}
-				else { etat = 0;}				
-				break;
-			case 4 :
-				if (tab[0] == 'G'){ data[4] = tab[0]; etat = 5;}
-				else { etat = 0;}				
-				break;
-			case 5 :
-				if (tab[0] == 'A'){ data[5] = tab[0]; etat = 6;}
-				else { etat = 0;}				
-				break;
-			case 6:
-				data[i] = tab[0]; 
+				data[i] = tab[0];
 				i++;
-				if (i == 50) etat = 0;
-				break;
-		}	
-		
-		GLCD_DrawString(5,5,data);	
+			if (i==45) etat = 3;
+					
+//				for (i=0; i<40; i++)
+//					{
+//						if (data[i]== 'N')
+//						{
+//							for (j=0; j<9; j++)
+//							{
+//								lat[j] = data[i-9-j];
+//							}
+//						}
+//						if (data[i]== 'E')
+//						{
+//							for (j=0; j<9; j++)
+//							{
+//								lon[j] = data[i-9-j];
+//							}
+//						}
+//					}
+					break;		
+			case 3 :
+				for (i=0; i<45; i++)
+					{
+						if (data[i] == 'N')
+						{
+							for (j=0; j<9; j++)
+							{
+								lat[j] = data[i-9-j];
+							}	
+						}
+						else if (data[i] == 'E')
+						{
+							for (j=0; j<9; j++)
+							{
+								lon[j] = data[i-9-j];
+							}
+						}
+					}
+					GLCD_DrawString(5,10,data);
+					etat = 0;
+			
+				break;	
+		}
+	}
+}	
 		
 
-//		for (j=0; j<200; j++)
-//		{
-//			if (tab[j] == '$') //&& (tab[j+3] == 'G') && (tab[j+4] == 'G')&& (tab[j+3] == 'A') )
-//			{
-//				data[0] = tab[j]; data[1] = tab[j+1]; data[2] = tab[j+2]; data[3] = tab[j+3]; data[4] = tab[j+4]; data[5] = tab[j+5];
-//				GLCD_DrawString(5,400,data);
-//				
-//				break;
-//			}
-//		}
-	}
-}
+				
+	
+
+	
+
+//		
+//data[i] = tab [0];
+//i++;
+//		GLCD_DrawString(5,10,data);
+
+
