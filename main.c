@@ -9,10 +9,16 @@
 #include "Driver_USART.h"               // ::CMSIS Driver:USART
 #include "stdio.h"
 
-
+char data[50];
+	
 void tache1(void const* argument);
 osThreadId ID_Tache1;
 osThreadDef(tache1, osPriorityNormal, 1, 0);
+
+void tache2(void const* argument);
+osThreadId ID_Tache2;
+osThreadDef(tache2, osPriorityHigh, 1, 0);
+
 
 extern GLCD_FONT GLCD_Font_6x8;
 extern GLCD_FONT GLCD_Font_16x24;
@@ -60,6 +66,7 @@ int main (void) {
   // example: tid_name = osThreadCreate (osThread(name), NULL);
 	
 	ID_Tache1 = osThreadCreate(osThread(tache1), NULL);
+	ID_Tache2 = osThreadCreate(osThread(tache2), NULL);
 
   osKernelStart ();                         // start thread execution 
 	osDelay(osWaitForever);
@@ -70,11 +77,8 @@ void tache1(void const* argument)
 {
 	char tab[1];
 	int i=0;
-	int j, k;
-	char data[50];
+
 	char etat = 0;
-	char lat[9];
-	char lon[9];
 	
 	while (1)
 	{
@@ -89,62 +93,61 @@ void tache1(void const* argument)
 				data[0] = tab[0];
 				if (tab[0] == '$') etat = 1;
 				break;
+			
 			case 1 :
 				data[i] = tab[0];
 				i++;
 				if ((data[3] == 'G') && (data[4] == 'G') && (data[5] == 'A')) etat = 2;
 				break;
+			
 			case 2 :
 				data[i] = tab[0];
 				i++;
-			if (i==45) etat = 3;
-					
-//				for (i=0; i<40; i++)
-//					{
-//						if (data[i]== 'N')
-//						{
-//							for (j=0; j<9; j++)
-//							{
-//								lat[j] = data[i-9-j];
-//							}
-//						}
-//						if (data[i]== 'E')
-//						{
-//							for (j=0; j<9; j++)
-//							{
-//								lon[j] = data[i-9-j];
-//							}
-//						}
-//					}
-					break;		
-			case 3 :
-				for (i=0; i<45; i++)
-					{
-						if (data[i] == 'N')
-						{
-							for (j=0; j<9; j++)
-							{
-								lat[j] = data[i-9-j];
-							}	
-						}
-						else if (data[i] == 'E')
-						{
-							for (j=0; j<9; j++)
-							{
-								lon[j] = data[i-9-j];
-							}
-						}
-					}
-					GLCD_DrawString(5,10,data);
+				if (i==50) 
+				{
+					osSignalSet(ID_Tache2, 0x1);
 					etat = 0;
-			
-				break;	
+				}
+				break;		
 		}
 	}
 }	
 		
 
-				
+void tache2(void const* argument)
+{
+
+	int i, j;
+	char lat[9];
+	char lon[9];
+	
+	while (1)
+	{
+		osSignalWait(0x1, osWaitForever);
+
+		for (i=0; i<50; i++)
+			{
+				if (data[i] == 'N')
+				{
+					for (j=0; j<9; j++)
+					{
+						lat[j] = data[i-10+j];
+					}	
+				}
+				if (data[i] == 'E')
+				{
+					for (j=0; j<9; j++)
+					{
+						lon[j] = data[i-9+j];
+					}
+				}
+			}
+			GLCD_DrawString(5,10,data);
+			GLCD_DrawString(5,50,lat);
+			GLCD_DrawString(5,100,lon);
+	}
+}	
+			
 	
 
 	
