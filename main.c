@@ -9,7 +9,7 @@
 #include "Driver_USART.h"               // ::CMSIS Driver:USART
 #include "stdio.h"
 
-char data[50];
+char data[60];
 	
 void tache1(void const* argument);
 osThreadId ID_Tache1;
@@ -103,7 +103,7 @@ void tache1(void const* argument)
 			case 2 :
 				data[i] = tab[0];
 				i++;
-				if (i==50) 
+				if (i==60) 
 				{
 					osSignalSet(ID_Tache2, 0x1);
 					etat = 0;
@@ -125,7 +125,7 @@ void tache2(void const* argument)
 	{
 		osSignalWait(0x1, osWaitForever);
 
-		for (i=0; i<50; i++)
+		for (i=0; i<60; i++)
 			{
 				if (data[i] == 'N')
 				{
@@ -138,7 +138,7 @@ void tache2(void const* argument)
 				{
 					for (j=0; j<9; j++)
 					{
-						lon[j] = data[i-9+j];
+						lon[j] = data[i-11+j];
 					}
 				}
 			}
