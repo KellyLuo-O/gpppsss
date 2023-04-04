@@ -105,8 +105,8 @@ void tache1(void const* argument)
 				i++;
 				if (i==60) 
 				{
-					osSignalSet(ID_Tache2, 0x1);
 					etat = 0;
+					osSignalSet(ID_Tache2, 0x1);
 				}
 				break;		
 		}
