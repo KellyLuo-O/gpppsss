@@ -8,7 +8,7 @@
 #include "GLCD_Config.h"                // Keil.MCB1700::Board Support:Graphic LCD
 #include "Driver_USART.h"               // ::CMSIS Driver:USART
 #include "stdio.h"
-
+#include <stdlib.h>
 char data[60];
 
 	
@@ -110,7 +110,7 @@ void tache1(void const* argument)
 			case 2 :
 				data[i] = tab[0];
 				i++;
-				if (i==60) 
+				if (i==60    ) 
 				{
 					osSignalSet(ID_Tache2, 0x1);
 					etat = 0;
@@ -126,12 +126,12 @@ void tache2(void const* argument)
 	int i, j, k=0;
 //	char lat[9];
 //	char lon[9];
-	float lat, lon;
+	float latitude, longitude;
 	char id[20], temps[20], n[1], e[1], texte[50];
 	
 	while (1)
 	{
-//		osSignalWait(0x1, osWaitForever);
+		osSignalWait(0x1, osWaitForever);
 //		for (i=0; i<60; i++)
 //			{
 //				switch (data[i])
@@ -150,14 +150,22 @@ void tache2(void const* argument)
 //						break;break;
 //				}
 //			}	
-			sscanf(data, "%s,%s,%f,%c,%f,%c", id, temps, &lat, n, &lon, e);
-		sprintf(texte, "%f     %f  ", lat, lon);
+		
+		
+		GLCD_DrawString(5,20,data);
+		latitude = strtof(data, NULL);
+		longitude = strtof(data, NULL);
+		
+		sprintf(texte, "%f     %f  ", latitude, longitude);
+		
 		GLCD_DrawString(5,10,texte);
-//		GLCD_DrawString(5,10,data);
-//		GLCD_DrawString(5,50,lat);
+		
+		
 //		GLCD_DrawString(5,100,lon);
+
 //			GLCD_DrawPixel(k, k);
 //			k++;
+
 	}
 	
 }	
