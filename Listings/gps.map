@@ -1440,40 +1440,40 @@ Image Symbol Table
     i.svcTimerCall                           0x00005250   Section        0  rt_cmsis.o(i.svcTimerCall)
     i.sysTimerTick                           0x00005268   Section        0  rt_cmsis.o(i.sysTimerTick)
     i.tache1                                 0x000052c4   Section        0  main.o(i.tache1)
-    i.tache2                                 0x00005358   Section        0  main.o(i.tache2)
-    i.usart_cb                               0x000053d8   Section        0  main.o(i.usart_cb)
-    i.wr_cmd                                 0x000053f4   Section        0  glcd_mcb1700.o(i.wr_cmd)
-    wr_cmd                                   0x000053f5   Thumb Code    70  glcd_mcb1700.o(i.wr_cmd)
-    i.wr_dat_only                            0x00005440   Section        0  glcd_mcb1700.o(i.wr_dat_only)
-    wr_dat_only                              0x00005441   Thumb Code    46  glcd_mcb1700.o(i.wr_dat_only)
-    i.wr_dat_start                           0x00005474   Section        0  glcd_mcb1700.o(i.wr_dat_start)
-    wr_dat_start                             0x00005475   Thumb Code    20  glcd_mcb1700.o(i.wr_dat_start)
-    i.wr_dat_stop                            0x0000548c   Section        0  glcd_mcb1700.o(i.wr_dat_stop)
-    wr_dat_stop                              0x0000548d   Thumb Code    14  glcd_mcb1700.o(i.wr_dat_stop)
-    i.wr_reg                                 0x000054a0   Section        0  glcd_mcb1700.o(i.wr_reg)
-    wr_reg                                   0x000054a1   Thumb Code   140  glcd_mcb1700.o(i.wr_reg)
-    .constdata                               0x00005530   Section       32  main.o(.constdata)
-    .constdata                               0x00005550   Section     6304  glcd_fonts.o(.constdata)
-    Font_6x8_h                               0x00005550   Data         896  glcd_fonts.o(.constdata)
-    Font_16x24_h                             0x000058d0   Data        5376  glcd_fonts.o(.constdata)
-    .constdata                               0x00006df0   Section      104  rtx_conf_cm.o(.constdata)
-    __tagsym$$used                           0x00006e0c   Number         0  rtx_conf_cm.o(.constdata)
-    __tagsym$$used                           0x00006e10   Number         0  rtx_conf_cm.o(.constdata)
-    __tagsym$$used                           0x00006e14   Number         0  rtx_conf_cm.o(.constdata)
-    __tagsym$$used                           0x00006e18   Number         0  rtx_conf_cm.o(.constdata)
-    .constdata                               0x00006e58   Section      124  ssp_lpc17xx.o(.constdata)
-    DriverVersion                            0x00006e58   Data           4  ssp_lpc17xx.o(.constdata)
-    DriverCapabilities                       0x00006e5c   Data           4  ssp_lpc17xx.o(.constdata)
-    SSP1_Resources                           0x00006e60   Data          72  ssp_lpc17xx.o(.constdata)
-    .constdata                               0x00006ed4   Section      636  uart_lpc17xx.o(.constdata)
-    usart_driver_version                     0x00006ed4   Data           4  uart_lpc17xx.o(.constdata)
-    fract_div_lookup_table                   0x00006ed8   Data         288  uart_lpc17xx.o(.constdata)
-    UART0_DMA_Tx                             0x00006ff8   Data           8  uart_lpc17xx.o(.constdata)
-    UART0_DMA_Rx                             0x00007000   Data           8  uart_lpc17xx.o(.constdata)
-    USART0_Resources                         0x00007008   Data         100  uart_lpc17xx.o(.constdata)
-    USART1_DMA_Tx                            0x0000706c   Data           8  uart_lpc17xx.o(.constdata)
-    USART1_DMA_Rx                            0x00007074   Data           8  uart_lpc17xx.o(.constdata)
-    USART1_Resources                         0x0000707c   Data         100  uart_lpc17xx.o(.constdata)
+    i.tache2                                 0x0000536c   Section        0  main.o(i.tache2)
+    i.usart_cb                               0x000053f0   Section        0  main.o(i.usart_cb)
+    i.wr_cmd                                 0x0000540c   Section        0  glcd_mcb1700.o(i.wr_cmd)
+    wr_cmd                                   0x0000540d   Thumb Code    70  glcd_mcb1700.o(i.wr_cmd)
+    i.wr_dat_only                            0x00005458   Section        0  glcd_mcb1700.o(i.wr_dat_only)
+    wr_dat_only                              0x00005459   Thumb Code    46  glcd_mcb1700.o(i.wr_dat_only)
+    i.wr_dat_start                           0x0000548c   Section        0  glcd_mcb1700.o(i.wr_dat_start)
+    wr_dat_start                             0x0000548d   Thumb Code    20  glcd_mcb1700.o(i.wr_dat_start)
+    i.wr_dat_stop                            0x000054a4   Section        0  glcd_mcb1700.o(i.wr_dat_stop)
+    wr_dat_stop                              0x000054a5   Thumb Code    14  glcd_mcb1700.o(i.wr_dat_stop)
+    i.wr_reg                                 0x000054b8   Section        0  glcd_mcb1700.o(i.wr_reg)
+    wr_reg                                   0x000054b9   Thumb Code   140  glcd_mcb1700.o(i.wr_reg)
+    .constdata                               0x00005548   Section       32  main.o(.constdata)
+    .constdata                               0x00005568   Section     6304  glcd_fonts.o(.constdata)
+    Font_6x8_h                               0x00005568   Data         896  glcd_fonts.o(.constdata)
+    Font_16x24_h                             0x000058e8   Data        5376  glcd_fonts.o(.constdata)
+    .constdata                               0x00006e08   Section      104  rtx_conf_cm.o(.constdata)
+    __tagsym$$used                           0x00006e24   Number         0  rtx_conf_cm.o(.constdata)
+    __tagsym$$used                           0x00006e28   Number         0  rtx_conf_cm.o(.constdata)
+    __tagsym$$used                           0x00006e2c   Number         0  rtx_conf_cm.o(.constdata)
+    __tagsym$$used                           0x00006e30   Number         0  rtx_conf_cm.o(.constdata)
+    .constdata                               0x00006e70   Section      124  ssp_lpc17xx.o(.constdata)
+    DriverVersion                            0x00006e70   Data           4  ssp_lpc17xx.o(.constdata)
+    DriverCapabilities                       0x00006e74   Data           4  ssp_lpc17xx.o(.constdata)
+    SSP1_Resources                           0x00006e78   Data          72  ssp_lpc17xx.o(.constdata)
+    .constdata                               0x00006eec   Section      636  uart_lpc17xx.o(.constdata)
+    usart_driver_version                     0x00006eec   Data           4  uart_lpc17xx.o(.constdata)
+    fract_div_lookup_table                   0x00006ef0   Data         288  uart_lpc17xx.o(.constdata)
+    UART0_DMA_Tx                             0x00007010   Data           8  uart_lpc17xx.o(.constdata)
+    UART0_DMA_Rx                             0x00007018   Data           8  uart_lpc17xx.o(.constdata)
+    USART0_Resources                         0x00007020   Data         100  uart_lpc17xx.o(.constdata)
+    USART1_DMA_Tx                            0x00007084   Data           8  uart_lpc17xx.o(.constdata)
+    USART1_DMA_Rx                            0x0000708c   Data           8  uart_lpc17xx.o(.constdata)
+    USART1_Resources                         0x00007094   Data         100  uart_lpc17xx.o(.constdata)
     .data                                    0x10000000   Section        8  main.o(.data)
     .data                                    0x10000008   Section       17  glcd_mcb1700.o(.data)
     spi1_pins                                0x10000008   Data           8  glcd_mcb1700.o(.data)
@@ -1796,38 +1796,38 @@ Image Symbol Table
     svcThreadTerminate                       0x00005219   Thumb Code    50  rt_cmsis.o(i.svcThreadTerminate)
     svcTimerCall                             0x00005251   Thumb Code    24  rt_cmsis.o(i.svcTimerCall)
     sysTimerTick                             0x00005269   Thumb Code    84  rt_cmsis.o(i.sysTimerTick)
-    tache1                                   0x000052c5   Thumb Code   136  main.o(i.tache1)
-    tache2                                   0x00005359   Thumb Code   124  main.o(i.tache2)
-    usart_cb                                 0x000053d9   Thumb Code    24  main.o(i.usart_cb)
-    os_thread_def_tache1                     0x00005530   Data          16  main.o(.constdata)
-    os_thread_def_tache2                     0x00005540   Data          16  main.o(.constdata)
-    GLCD_Font_6x8                            0x00006dd0   Data          16  glcd_fonts.o(.constdata)
-    GLCD_Font_16x24                          0x00006de0   Data          16  glcd_fonts.o(.constdata)
-    os_maxtaskrun                            0x00006df0   Data           2  rtx_conf_cm.o(.constdata)
-    os_stackinfo                             0x00006df4   Data           4  rtx_conf_cm.o(.constdata)
-    os_rrobin                                0x00006df8   Data           4  rtx_conf_cm.o(.constdata)
-    os_tickfreq                              0x00006dfc   Data           4  rtx_conf_cm.o(.constdata)
-    os_tickus_i                              0x00006e00   Data           2  rtx_conf_cm.o(.constdata)
-    os_tickus_f                              0x00006e02   Data           2  rtx_conf_cm.o(.constdata)
-    os_trv                                   0x00006e04   Data           4  rtx_conf_cm.o(.constdata)
-    os_flags                                 0x00006e08   Data           1  rtx_conf_cm.o(.constdata)
-    CMSIS_RTOS_API_Version                   0x00006e0c   Data           4  rtx_conf_cm.o(.constdata)
-    CMSIS_RTOS_RTX_Version                   0x00006e10   Data           4  rtx_conf_cm.o(.constdata)
-    os_clockrate                             0x00006e14   Data           4  rtx_conf_cm.o(.constdata)
-    os_timernum                              0x00006e18   Data           4  rtx_conf_cm.o(.constdata)
-    mp_tcb_size                              0x00006e1c   Data           2  rtx_conf_cm.o(.constdata)
-    mp_stk_size                              0x00006e20   Data           4  rtx_conf_cm.o(.constdata)
-    os_stack_sz                              0x00006e24   Data           4  rtx_conf_cm.o(.constdata)
-    os_fifo_size                             0x00006e28   Data           1  rtx_conf_cm.o(.constdata)
-    os_thread_def_osTimerThread              0x00006e2c   Data          16  rtx_conf_cm.o(.constdata)
-    os_messageQ_def_osTimerMessageQ          0x00006e3c   Data           8  rtx_conf_cm.o(.constdata)
-    mp_tmr_size                              0x00006e44   Data           2  rtx_conf_cm.o(.constdata)
-    os_thread_def_main                       0x00006e48   Data          16  rtx_conf_cm.o(.constdata)
-    Driver_SPI1                              0x00006ea8   Data          44  ssp_lpc17xx.o(.constdata)
-    Driver_USART0                            0x000070e0   Data          56  uart_lpc17xx.o(.constdata)
-    Driver_USART1                            0x00007118   Data          56  uart_lpc17xx.o(.constdata)
-    Region$$Table$$Base                      0x00007150   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00007170   Number         0  anon$$obj.o(Region$$Table)
+    tache1                                   0x000052c5   Thumb Code   154  main.o(i.tache1)
+    tache2                                   0x0000536d   Thumb Code   126  main.o(i.tache2)
+    usart_cb                                 0x000053f1   Thumb Code    24  main.o(i.usart_cb)
+    os_thread_def_tache1                     0x00005548   Data          16  main.o(.constdata)
+    os_thread_def_tache2                     0x00005558   Data          16  main.o(.constdata)
+    GLCD_Font_6x8                            0x00006de8   Data          16  glcd_fonts.o(.constdata)
+    GLCD_Font_16x24                          0x00006df8   Data          16  glcd_fonts.o(.constdata)
+    os_maxtaskrun                            0x00006e08   Data           2  rtx_conf_cm.o(.constdata)
+    os_stackinfo                             0x00006e0c   Data           4  rtx_conf_cm.o(.constdata)
+    os_rrobin                                0x00006e10   Data           4  rtx_conf_cm.o(.constdata)
+    os_tickfreq                              0x00006e14   Data           4  rtx_conf_cm.o(.constdata)
+    os_tickus_i                              0x00006e18   Data           2  rtx_conf_cm.o(.constdata)
+    os_tickus_f                              0x00006e1a   Data           2  rtx_conf_cm.o(.constdata)
+    os_trv                                   0x00006e1c   Data           4  rtx_conf_cm.o(.constdata)
+    os_flags                                 0x00006e20   Data           1  rtx_conf_cm.o(.constdata)
+    CMSIS_RTOS_API_Version                   0x00006e24   Data           4  rtx_conf_cm.o(.constdata)
+    CMSIS_RTOS_RTX_Version                   0x00006e28   Data           4  rtx_conf_cm.o(.constdata)
+    os_clockrate                             0x00006e2c   Data           4  rtx_conf_cm.o(.constdata)
+    os_timernum                              0x00006e30   Data           4  rtx_conf_cm.o(.constdata)
+    mp_tcb_size                              0x00006e34   Data           2  rtx_conf_cm.o(.constdata)
+    mp_stk_size                              0x00006e38   Data           4  rtx_conf_cm.o(.constdata)
+    os_stack_sz                              0x00006e3c   Data           4  rtx_conf_cm.o(.constdata)
+    os_fifo_size                             0x00006e40   Data           1  rtx_conf_cm.o(.constdata)
+    os_thread_def_osTimerThread              0x00006e44   Data          16  rtx_conf_cm.o(.constdata)
+    os_messageQ_def_osTimerMessageQ          0x00006e54   Data           8  rtx_conf_cm.o(.constdata)
+    mp_tmr_size                              0x00006e5c   Data           2  rtx_conf_cm.o(.constdata)
+    os_thread_def_main                       0x00006e60   Data          16  rtx_conf_cm.o(.constdata)
+    Driver_SPI1                              0x00006ec0   Data          44  ssp_lpc17xx.o(.constdata)
+    Driver_USART0                            0x000070f8   Data          56  uart_lpc17xx.o(.constdata)
+    Driver_USART1                            0x00007130   Data          56  uart_lpc17xx.o(.constdata)
+    Region$$Table$$Base                      0x00007168   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00007188   Number         0  anon$$obj.o(Region$$Table)
     ID_Tache1                                0x10000000   Data           4  main.o(.data)
     ID_Tache2                                0x10000004   Data           4  main.o(.data)
     osThreadId_osTimerThread                 0x1000001c   Data           4  rtx_conf_cm.o(.data)
@@ -1864,9 +1864,9 @@ Memory Map of the image
 
   Image Entry point : 0x000002bd
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x000071ec, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00007204, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x00007170, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x00007188, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2146,20 +2146,20 @@ Memory Map of the image
     0x00005218   0x00000038   Code   RO         1169    i.svcThreadTerminate  RTX_CM3.lib(rt_cmsis.o)
     0x00005250   0x00000018   Code   RO         1171    i.svcTimerCall      RTX_CM3.lib(rt_cmsis.o)
     0x00005268   0x0000005c   Code   RO         1180    i.sysTimerTick      RTX_CM3.lib(rt_cmsis.o)
-    0x000052c4   0x00000094   Code   RO            3    i.tache1            main.o
-    0x00005358   0x00000080   Code   RO            4    i.tache2            main.o
-    0x000053d8   0x0000001c   Code   RO            5    i.usart_cb          main.o
-    0x000053f4   0x0000004c   Code   RO          114    i.wr_cmd            glcd_mcb1700.o
-    0x00005440   0x00000034   Code   RO          116    i.wr_dat_only       glcd_mcb1700.o
-    0x00005474   0x00000018   Code   RO          117    i.wr_dat_start      glcd_mcb1700.o
-    0x0000548c   0x00000014   Code   RO          118    i.wr_dat_stop       glcd_mcb1700.o
-    0x000054a0   0x00000090   Code   RO          119    i.wr_reg            glcd_mcb1700.o
-    0x00005530   0x00000020   Data   RO            7    .constdata          main.o
-    0x00005550   0x000018a0   Data   RO           77    .constdata          glcd_fonts.o
-    0x00006df0   0x00000068   Data   RO          322    .constdata          rtx_conf_cm.o
-    0x00006e58   0x0000007c   Data   RO          404    .constdata          ssp_lpc17xx.o
-    0x00006ed4   0x0000027c   Data   RO          619    .constdata          uart_lpc17xx.o
-    0x00007150   0x00000020   Data   RO         2469    Region$$Table       anon$$obj.o
+    0x000052c4   0x000000a8   Code   RO            3    i.tache1            main.o
+    0x0000536c   0x00000084   Code   RO            4    i.tache2            main.o
+    0x000053f0   0x0000001c   Code   RO            5    i.usart_cb          main.o
+    0x0000540c   0x0000004c   Code   RO          114    i.wr_cmd            glcd_mcb1700.o
+    0x00005458   0x00000034   Code   RO          116    i.wr_dat_only       glcd_mcb1700.o
+    0x0000548c   0x00000018   Code   RO          117    i.wr_dat_start      glcd_mcb1700.o
+    0x000054a4   0x00000014   Code   RO          118    i.wr_dat_stop       glcd_mcb1700.o
+    0x000054b8   0x00000090   Code   RO          119    i.wr_reg            glcd_mcb1700.o
+    0x00005548   0x00000020   Data   RO            7    .constdata          main.o
+    0x00005568   0x000018a0   Data   RO           77    .constdata          glcd_fonts.o
+    0x00006e08   0x00000068   Data   RO          322    .constdata          rtx_conf_cm.o
+    0x00006e70   0x0000007c   Data   RO          404    .constdata          ssp_lpc17xx.o
+    0x00006eec   0x0000027c   Data   RO          619    .constdata          uart_lpc17xx.o
+    0x00007168   0x00000020   Data   RO         2469    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x10000000, Size: 0x0000007c, Max: 0xffffffff, ABSOLUTE)
@@ -2210,7 +2210,7 @@ Image component sizes
       2792         98          0         17          0      34218   glcd_mcb1700.o
       1212         94          0          8        160       8082   gpdma_lpc17xx.o
        172         18          0          0          0       2294   gpio_lpc17xx.o
-       448         48         32          8         60      19205   main.o
+       472         52         32          8         60      19237   main.o
        252          6          0          0          0        804   pin_lpc17xx.o
        126         26        104         20       3016       8927   rtx_conf_cm.o
       3904        106        124         16         40      53055   ssp_lpc17xx.o
@@ -2219,7 +2219,7 @@ Image component sizes
       6152        242        636          8        104      41376   uart_lpc17xx.o
 
     ----------------------------------------------------------------------
-     15452        682       7436         84       3892     170416   Object Totals
+     15476        686       7436         84       3892     170448   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         10          0          0          3          0          0   (incl. Padding)
 
@@ -2286,15 +2286,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     21604       1250       7436        124       4092     239756   Grand Totals
-     21604       1250       7436        124       4092     239756   ELF Image Totals
-     21604       1250       7436        124          0          0   ROM Totals
+     21628       1254       7436        124       4092     239788   Grand Totals
+     21628       1254       7436        124       4092     239788   ELF Image Totals
+     21628       1254       7436        124          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                29040 (  28.36kB)
+    Total RO  Size (Code + RO Data)                29064 (  28.38kB)
     Total RW  Size (RW Data + ZI Data)              4216 (   4.12kB)
-    Total ROM Size (Code + RO Data + RW Data)      29164 (  28.48kB)
+    Total ROM Size (Code + RO Data + RW Data)      29188 (  28.50kB)
 
 ==============================================================================
 

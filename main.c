@@ -10,6 +10,7 @@
 #include "stdio.h"
 
 char data[60];
+
 	
 void tache1(void const* argument);
 osThreadId ID_Tache1;
@@ -77,7 +78,6 @@ void tache1(void const* argument)
 {
 	char tab[1];
 	int i=0;
-
 	char etat = 0;
 	
 	while (1)
@@ -89,24 +89,32 @@ void tache1(void const* argument)
 		switch (etat)
 		{
 			case 0 :
-				i=1;
-				data[0] = tab[0];
+				i=1; data[0] = 0; data[3] = 0; data[4] = 0; data[5] = 0; 
+				data[0] = tab[0]; 
 				if (tab[0] == '$') etat = 1;
 				break;
 			
 			case 1 :
 				data[i] = tab[0];
 				i++;
-				if ((data[3] == 'G') && (data[4] == 'G') && (data[5] == 'A')) etat = 2;
+				if ((data[3] == 'G') && (data[4] == 'G') && (data[5] == 'A')) 
+				{
+					etat = 2;
+				}
+				else if (i==6)
+				{
+					etat = 0;
+				}
 				break;
-			
+				
 			case 2 :
 				data[i] = tab[0];
 				i++;
-				if (i==60) 
+				if (i==60    ) 
 				{
-					etat = 0;
+
 					osSignalSet(ID_Tache2, 0x1);
+					etat = 0;
 				}
 				break;		
 		}
@@ -116,7 +124,6 @@ void tache1(void const* argument)
 
 void tache2(void const* argument)
 {
-
 	int i, j;
 	char lat[9];
 	char lon[9];
@@ -124,37 +131,33 @@ void tache2(void const* argument)
 	while (1)
 	{
 		osSignalWait(0x1, osWaitForever);
-
 		for (i=0; i<60; i++)
 			{
-				if (data[i] == 'N')
+				switch (data[i])
 				{
-					for (j=0; j<9; j++)
-					{
-						lat[j] = data[i-10+j];
-					}	
+					case 'N':
+						for (j=0; j<9; j++)
+						{
+							lat[j] = data[i-10+j];	
+						}	
+						break;
+					case 'E':
+						for (j=0; j<9; j++)
+						{
+							lon[j] = data[i-11+j];
+						}
+						break;break;
 				}
-				if (data[i] == 'E')
-				{
-					for (j=0; j<9; j++)
-					{
-						lon[j] = data[i-11+j];
-					}
-				}
-			}
-			GLCD_DrawString(5,10,data);
-			GLCD_DrawString(5,50,lat);
-			GLCD_DrawString(5,100,lon);
+			}	
+			
+		GLCD_DrawString(5,10,data);
+		GLCD_DrawString(5,50,lat);
+		GLCD_DrawString(5,100,lon);
+			
 	}
+	
 }	
 			
-	
 
-	
-
-//		
-//data[i] = tab [0];
-//i++;
-//		GLCD_DrawString(5,10,data);
 
 
