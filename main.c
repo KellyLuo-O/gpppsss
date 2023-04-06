@@ -9,7 +9,12 @@
 #include "Driver_USART.h"               // ::CMSIS Driver:USART
 #include "stdio.h"
 
-char data[60];
+typedef struct
+{
+	float latitude;
+	float longitude;
+}cordonnee;
+	
 	
 void tache1(void const* argument);
 osThreadId ID_Tache1;
@@ -17,7 +22,10 @@ osThreadDef(tache1, osPriorityNormal, 1, 0);
 
 void tache2(void const* argument);
 osThreadId ID_Tache2;
-osThreadDef(tache2, osPriorityHigh, 1, 0);
+osThreadDef(tache2, osPriorityNormal, 1, 0);
+
+osMailQId ID_BAL;
+osMailQDef(BALData, 2, cordonnee);
 
 
 extern GLCD_FONT GLCD_Font_6x8;
@@ -67,6 +75,7 @@ int main (void) {
 	
 	ID_Tache1 = osThreadCreate(osThread(tache1), NULL);
 	ID_Tache2 = osThreadCreate(osThread(tache2), NULL);
+	ID_BAL = osMailCreate(osMailQ(BALData), NULL);
 
   osKernelStart ();                         // start thread execution 
 	osDelay(osWaitForever);
@@ -77,8 +86,12 @@ void tache1(void const* argument)
 {
 	char tab[1];
 	int i=0;
-
 	char etat = 0;
+	char data[60];
+	
+	cordonnee *ptr;
+	float lat, lon;
+	char id[6], temps[10], n[1], e[1]; 
 	
 	while (1)
 	{
@@ -97,16 +110,23 @@ void tache1(void const* argument)
 			case 1 :
 				data[i] = tab[0];
 				i++;
-				if ((data[3] == 'G') && (data[4] == 'G') && (data[5] == 'A')) etat = 2;
+				if ((data[3] == 'G') && (data[4] == 'G') && (data[5] == 'A')) etat = 2 ;		
 				break;
-			
 			case 2 :
+				GLCD_DrawString(5,10,"case2");
 				data[i] = tab[0];
 				i++;
-				if (i==60) 
+				if (i==40) 
 				{
+					GLCD_DrawString(5,10,"envoi");
+					//sscanf(data, "%s,%s,%f,%c,%f,%c", id, temps, &lat, n, &lon, e);
+					
+					ptr = osMailAlloc(ID_BAL, osWaitForever);
+					ptr -> latitude = lat;
+					ptr -> longitude = lon;
+					osMailPut(ID_BAL, ptr);
+					
 					etat = 0;
-					osSignalSet(ID_Tache2, 0x1);
 				}
 				break;		
 		}
@@ -117,44 +137,27 @@ void tache1(void const* argument)
 void tache2(void const* argument)
 {
 
-	int i, j;
-	char lat[9];
-	char lon[9];
+	cordonnee *recep, valeur;
+	osEvent EVretour;
+	
+	char texte[50];
 	
 	while (1)
 	{
-		osSignalWait(0x1, osWaitForever);
+		EVretour = osMailGet(ID_BAL, osWaitForever);
+		
+		GLCD_DrawString(5,20,"recu");
+		recep = EVretour.value.p;
+		valeur = *recep;
 
-		for (i=0; i<60; i++)
-			{
-				if (data[i] == 'N')
-				{
-					for (j=0; j<9; j++)
-					{
-						lat[j] = data[i-10+j];
-					}	
-				}
-				if (data[i] == 'E')
-				{
-					for (j=0; j<9; j++)
-					{
-						lon[j] = data[i-11+j];
-					}
-				}
-			}
-			GLCD_DrawString(5,10,data);
-			GLCD_DrawString(5,50,lat);
-			GLCD_DrawString(5,100,lon);
+		osMailFree(ID_BAL, recep);
+
+
+		sprintf(texte, "lat : %f , lon : %f", valeur.latitude, valeur.longitude);
+		GLCD_DrawString(5,50,texte);
+			
+//		GLCD_DrawString(5,50,lat);
+//		GLCD_DrawString(5,100,lon);
 	}
 }	
 			
-	
-
-	
-
-//		
-//data[i] = tab [0];
-//i++;
-//		GLCD_DrawString(5,10,data);
-
-
