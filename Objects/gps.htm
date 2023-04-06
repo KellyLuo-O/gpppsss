@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\gps.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\gps.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Thu Apr 06 16:59:33 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Thu Apr 06 17:08:59 2023
 <BR><P>
 <H3>Maximum Stack Usage =        168 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -568,22 +568,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9a]"></a>GLCD_DrawChar</STRONG> (Thumb, 194 bytes, Stack size 32 bytes, glcd_mcb1700.o(i.GLCD_DrawChar))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = GLCD_DrawChar &rArr; GLCD_SetWindow &rArr; wr_reg
+<P><STRONG><a name="[9a]"></a>GLCD_DrawPixel</STRONG> (Thumb, 120 bytes, Stack size 16 bytes, glcd_mcb1700.o(i.GLCD_DrawPixel))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = GLCD_DrawPixel &rArr; wr_reg
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetWindow
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_dat_stop
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_dat_start
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_dat_only
+<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_reg
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_dat
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_cmd
-</UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawString
-</UL>
-
-<P><STRONG><a name="[9c]"></a>GLCD_DrawString</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, glcd_mcb1700.o(i.GLCD_DrawString))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = GLCD_DrawString &rArr; GLCD_DrawChar &rArr; GLCD_SetWindow &rArr; wr_reg
-</UL>
-<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tache2
 </UL>
@@ -595,10 +585,10 @@ Global Symbols
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetDir
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PortClock
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_reg
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_reg
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rd_reg
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rd_id_man
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -607,19 +597,18 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9b]"></a>GLCD_SetWindow</STRONG> (Thumb, 168 bytes, Stack size 32 bytes, glcd_mcb1700.o(i.GLCD_SetWindow))
+<P><STRONG><a name="[a5]"></a>GLCD_SetWindow</STRONG> (Thumb, 168 bytes, Stack size 32 bytes, glcd_mcb1700.o(i.GLCD_SetWindow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = GLCD_SetWindow &rArr; wr_reg
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_reg
+<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_reg
 </UL>
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_WindowMax
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawChar
 </UL>
 
 <P><STRONG><a name="[95]"></a>GLCD_WindowMax</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, glcd_mcb1700.o(i.GLCD_WindowMax))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = GLCD_WindowMax &rArr; GLCD_SetWindow &rArr; wr_reg
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetWindow
+<BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetWindow
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_ClearScreen
 </UL>
@@ -1490,11 +1479,11 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.constdata)
 </UL>
-<P><STRONG><a name="[45]"></a>tache2</STRONG> (Thumb, 112 bytes, Stack size 40 bytes, main.o(i.tache2))
-<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = tache2 &rArr; GLCD_DrawString &rArr; GLCD_DrawChar &rArr; GLCD_SetWindow &rArr; wr_reg
+<P><STRONG><a name="[45]"></a>tache2</STRONG> (Thumb, 108 bytes, Stack size 40 bytes, main.o(i.tache2))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = tache2 &rArr; GLCD_DrawPixel &rArr; wr_reg
 </UL>
 <BR>[Calls]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSignalWait
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawString
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawPixel
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.constdata)
 </UL>
@@ -1508,7 +1497,7 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[a5]"></a>delay_ms</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, glcd_mcb1700.o(i.delay_ms))
+<P><STRONG><a name="[a4]"></a>delay_ms</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, glcd_mcb1700.o(i.delay_ms))
 <BR><BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_tran_man
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_Initialize
 </UL>
@@ -1554,7 +1543,7 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetDir
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinRead
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rd_id_man
 </UL>
@@ -1562,16 +1551,21 @@ Local Symbols
 <P><STRONG><a name="[96]"></a>wr_cmd</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, glcd_mcb1700.o(i.wr_cmd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = wr_cmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawChar
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rd_reg
+<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rd_reg
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawPixel
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_ClearScreen
+</UL>
+
+<P><STRONG><a name="[9c]"></a>wr_dat</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, glcd_mcb1700.o(i.wr_dat))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = wr_dat
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawPixel
 </UL>
 
 <P><STRONG><a name="[98]"></a>wr_dat_only</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, glcd_mcb1700.o(i.wr_dat_only))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = wr_dat_only
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawChar
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_ClearScreen
+<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_ClearScreen
 </UL>
 
 <P><STRONG><a name="[97]"></a>wr_dat_start</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, glcd_mcb1700.o(i.wr_dat_start))
@@ -1579,22 +1573,21 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_tran
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawChar
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_ClearScreen
+<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_ClearScreen
 </UL>
 
 <P><STRONG><a name="[99]"></a>wr_dat_stop</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, glcd_mcb1700.o(i.wr_dat_stop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = wr_dat_stop
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawChar
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_ClearScreen
+<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_ClearScreen
 </UL>
 
-<P><STRONG><a name="[a4]"></a>wr_reg</STRONG> (Thumb, 140 bytes, Stack size 24 bytes, glcd_mcb1700.o(i.wr_reg))
+<P><STRONG><a name="[9b]"></a>wr_reg</STRONG> (Thumb, 140 bytes, Stack size 24 bytes, glcd_mcb1700.o(i.wr_reg))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = wr_reg
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetWindow
+<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetWindow
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_Initialize
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawPixel
 </UL>
 
 <P><STRONG><a name="[b9]"></a>GetSSPClockFreq</STRONG> (Thumb, 64 bytes, Stack size 12 bytes, ssp_lpc17xx.o(i.GetSSPClockFreq))

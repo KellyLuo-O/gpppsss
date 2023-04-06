@@ -30,12 +30,14 @@ Build target 'Target 1'
 compiling main.c...
 main.c(148): warning:  #111-D: statement is unreachable
   						break;break;
+main.c(127): warning:  #550-D: variable "lat" was set but never used
+  	char lat[9];
 main.c(128): warning:  #550-D: variable "lon" was set but never used
   	char lon[9];
-main.c: 2 warnings, 0 errors
+main.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=21612 RO-data=7436 RW-data=124 ZI-data=4092  
-".\Objects\gps.axf" - 0 Error(s), 2 Warning(s).
+Program Size: Code=21560 RO-data=7436 RW-data=124 ZI-data=4092  
+".\Objects\gps.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 

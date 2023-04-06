@@ -110,7 +110,7 @@ void tache1(void const* argument)
 			case 2 :
 				data[i] = tab[0];
 				i++;
-				if (i==60    ) 
+				if (i==60) 
 				{
 					osSignalSet(ID_Tache2, 0x1);
 					etat = 0;
@@ -150,11 +150,10 @@ void tache2(void const* argument)
 			}	
 			
 //		GLCD_DrawString(5,10,data);
-		GLCD_DrawString(5,50+k,lat);
+//		GLCD_DrawString(5,50,lat);
 //		GLCD_DrawString(5,100,lon);
-			//GLCD_DrawPixel(k, k);
+			GLCD_DrawPixel(k, k);
 			k++;
-			
 	}
 	
 }	
