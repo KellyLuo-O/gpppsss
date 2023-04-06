@@ -124,36 +124,40 @@ void tache1(void const* argument)
 void tache2(void const* argument)
 {
 	int i, j, k=0;
-	char lat[9];
-	char lon[9];
+//	char lat[9];
+//	char lon[9];
+	float lat, lon;
+	char id[20], temps[20], n[1], e[1], texte[50];
 	
 	while (1)
 	{
-		osSignalWait(0x1, osWaitForever);
-		for (i=0; i<60; i++)
-			{
-				switch (data[i])
-				{
-					case 'N':
-						for (j=0; j<9; j++)
-						{
-							lat[j] = data[i-10+j];	
-						}	
-						break;
-					case 'E':
-						for (j=0; j<9; j++)
-						{
-							lon[j] = data[i-11+j];
-						}
-						break;break;
-				}
-			}	
-			
+//		osSignalWait(0x1, osWaitForever);
+//		for (i=0; i<60; i++)
+//			{
+//				switch (data[i])
+//				{
+//					case 'N':
+//						for (j=0; j<9; j++)
+//						{
+//							lat[j] = data[i-10+j];	
+//						}	
+//						break;
+//					case 'E':
+//						for (j=0; j<9; j++)
+//						{
+//							lon[j] = data[i-11+j];
+//						}
+//						break;break;
+//				}
+//			}	
+			sscanf(data, "%s,%s,%f,%c,%f,%c", id, temps, &lat, n, &lon, e);
+		sprintf(texte, "%f     %f  ", lat, lon);
+		GLCD_DrawString(5,10,texte);
 //		GLCD_DrawString(5,10,data);
 //		GLCD_DrawString(5,50,lat);
 //		GLCD_DrawString(5,100,lon);
-			GLCD_DrawPixel(k, k);
-			k++;
+//			GLCD_DrawPixel(k, k);
+//			k++;
 	}
 	
 }	
