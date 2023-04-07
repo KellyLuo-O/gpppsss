@@ -9,6 +9,7 @@
 #include "Driver_USART.h"               // ::CMSIS Driver:USART
 #include "stdio.h"
 #include <stdlib.h>
+
 char data[60];
 
 	
@@ -63,12 +64,11 @@ int main (void) {
 	GLCD_ClearScreen();
 	GLCD_SetFont(&GLCD_Font_6x8);
 	
-	GLCD_DrawHLine(50, 50, 200);
-	GLCD_DrawVLine(50, 50, 120);
+	GLCD_DrawHLine(50, 50, 200);GLCD_DrawHLine(50, 120, 200);
+	GLCD_DrawVLine(50, 50, 70);GLCD_DrawVLine(250, 50, 70);
 	
-	GLCD_DrawHLine(50, 120, 200);
-	GLCD_DrawVLine(200, 50, 120);
-	
+	GLCD_SetForegroundColor(GLCD_COLOR_RED);
+
   // create 'thread' functions that start executing,
   // example: tid_name = osThreadCreate (osThread(name), NULL);
 	
@@ -116,12 +116,16 @@ void tache1(void const* argument)
 			case 2 :
 				data[i] = tab[0];
 				i++;
-				if (i==60    ) 
+				if (i==60) 
 				{
 					osSignalSet(ID_Tache2, 0x1);
 					etat = 0;
 				}
-				break;		
+				break;
+			default : 
+				etat = 0;
+				break;
+				
 		}
 	}
 }	
@@ -129,11 +133,12 @@ void tache1(void const* argument)
 
 void tache2(void const* argument)
 {
-	int i, j, k=0;
+	int i, j;
 	char lat[9];
 	char lon[9];
 	float latitude, longitude;
-	//char id[20], temps[20], n[1], e[1], texte[50];
+	int positionX, positionY;
+	char texte[50];
 	
 	while (1)
 	{
@@ -153,21 +158,35 @@ void tache2(void const* argument)
 						{
 							lon[j] = data[i-11+j];
 						}
-						break;break;
+						break;
+					default: break;
 				}
 			}	
 		
-		
-		//GLCD_DrawString(5,20,data);
+//		GLCD_DrawString(5,20,data);
 		latitude = strtof(lat, NULL);
 		longitude = strtof(lon, NULL);
-//		sprintf(texte, "%f     %f  ", latitude, longitude);
-//		GLCD_DrawString(5,10,texte);
+		sprintf(texte, "%f     %f  ", latitude, longitude);
+		GLCD_DrawString(5,10,texte);
 			
+			if ((latitude != 0) && (longitude != 0))
+			{
+				positionX = 50+latitude *3333.33;
+				positionY = 50+longitude*2058.8;
+				sprintf(texte, "%d     %d  ", positionX, positionY);
+				GLCD_DrawString(5,20,texte);
+				
+				GLCD_DrawPixel(positionX, positionY);
+				GLCD_DrawPixel(positionX+1, positionY);
+				GLCD_DrawPixel(positionX, positionY+1);
+				GLCD_DrawPixel(positionX+1, positionY+1);
+				GLCD_DrawPixel(positionX-1, positionY-1);
+				GLCD_DrawPixel(positionX-1, positionY);
+				GLCD_DrawPixel(positionX, positionY-1);
+				GLCD_DrawPixel(positionX-1, positionY+1);
+				GLCD_DrawPixel(positionX+1, positionY-1);
+			}
 
-
-//			GLCD_DrawPixel(k, k);
-//			k++;
 
 	}
 	
