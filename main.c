@@ -63,6 +63,12 @@ int main (void) {
 	GLCD_ClearScreen();
 	GLCD_SetFont(&GLCD_Font_6x8);
 	
+	GLCD_DrawHLine(50, 50, 200);
+	GLCD_DrawVLine(50, 50, 120);
+	
+	GLCD_DrawHLine(50, 120, 200);
+	GLCD_DrawVLine(200, 50, 120);
+	
   // create 'thread' functions that start executing,
   // example: tid_name = osThreadCreate (osThread(name), NULL);
 	
@@ -124,44 +130,41 @@ void tache1(void const* argument)
 void tache2(void const* argument)
 {
 	int i, j, k=0;
-//	char lat[9];
-//	char lon[9];
+	char lat[9];
+	char lon[9];
 	float latitude, longitude;
-	char id[20], temps[20], n[1], e[1], texte[50];
+	//char id[20], temps[20], n[1], e[1], texte[50];
 	
 	while (1)
 	{
 		osSignalWait(0x1, osWaitForever);
-//		for (i=0; i<60; i++)
-//			{
-//				switch (data[i])
-//				{
-//					case 'N':
-//						for (j=0; j<9; j++)
-//						{
-//							lat[j] = data[i-10+j];	
-//						}	
-//						break;
-//					case 'E':
-//						for (j=0; j<9; j++)
-//						{
-//							lon[j] = data[i-11+j];
-//						}
-//						break;break;
-//				}
-//			}	
+		for (i=0; i<60; i++)
+			{
+				switch (data[i])
+				{
+					case 'N':
+						for (j=0; j<9; j++)
+						{
+							lat[j] = data[i-10+j];	
+						}	
+						break;
+					case 'E':
+						for (j=0; j<9; j++)
+						{
+							lon[j] = data[i-11+j];
+						}
+						break;break;
+				}
+			}	
 		
 		
-		GLCD_DrawString(5,20,data);
-		latitude = strtof(data, NULL);
-		longitude = strtof(data, NULL);
-		
-		sprintf(texte, "%f     %f  ", latitude, longitude);
-		
-		GLCD_DrawString(5,10,texte);
-		
-		
-//		GLCD_DrawString(5,100,lon);
+		//GLCD_DrawString(5,20,data);
+		latitude = strtof(lat, NULL);
+		longitude = strtof(lon, NULL);
+//		sprintf(texte, "%f     %f  ", latitude, longitude);
+//		GLCD_DrawString(5,10,texte);
+			
+
 
 //			GLCD_DrawPixel(k, k);
 //			k++;
