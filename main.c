@@ -49,6 +49,35 @@ void Init_UART(void){
 	Driver_USART1.Control(ARM_USART_CONTROL_RX,1);
 }
 
+void affichePoint(int positionX, int positionY)
+{
+	GLCD_SetForegroundColor(GLCD_COLOR_RED);
+	GLCD_DrawPixel(positionX, positionY);
+	GLCD_DrawPixel(positionX+1, positionY);
+	GLCD_DrawPixel(positionX, positionY+1);
+	GLCD_DrawPixel(positionX+1, positionY+1);
+	GLCD_DrawPixel(positionX-1, positionY-1);
+	GLCD_DrawPixel(positionX-1, positionY);
+	GLCD_DrawPixel(positionX, positionY-1);
+	GLCD_DrawPixel(positionX-1, positionY+1);
+	GLCD_DrawPixel(positionX+1, positionY-1);
+}
+
+void effacePoint(int positionX, int positionY)
+{
+	GLCD_SetForegroundColor(GLCD_COLOR_WHITE);
+	GLCD_DrawPixel(positionX, positionY);
+	GLCD_DrawPixel(positionX+1, positionY);
+	GLCD_DrawPixel(positionX, positionY+1);
+	GLCD_DrawPixel(positionX+1, positionY+1);
+	GLCD_DrawPixel(positionX-1, positionY-1);
+	GLCD_DrawPixel(positionX-1, positionY);
+	GLCD_DrawPixel(positionX, positionY-1);
+	GLCD_DrawPixel(positionX-1, positionY+1);
+	GLCD_DrawPixel(positionX+1, positionY-1);
+}
+
+
 /*
  * main: initialize and start the system
  */
@@ -67,7 +96,7 @@ int main (void) {
 	GLCD_DrawHLine(50, 50, 200);GLCD_DrawHLine(50, 120, 200);
 	GLCD_DrawVLine(50, 50, 70);GLCD_DrawVLine(250, 50, 70);
 	
-	GLCD_SetForegroundColor(GLCD_COLOR_RED);
+	
 
   // create 'thread' functions that start executing,
   // example: tid_name = osThreadCreate (osThread(name), NULL);
@@ -138,6 +167,7 @@ void tache2(void const* argument)
 	char lon[9];
 	float latitude, longitude;
 	int positionX, positionY;
+	int positionXavant, positionYavant;
 	char texte[50];
 	
 	while (1)
@@ -171,27 +201,18 @@ void tache2(void const* argument)
 			
 			if ((latitude != 0) && (longitude != 0))
 			{
-				positionX = 50+latitude *3333.33;
-				positionY = 50+longitude*2058.8;
+				positionX = 50+((latitude  - 4847.217773)*3333.37270904);
+				positionY = 50+((longitude - 219.645004)*2080.1539575) ;
 				sprintf(texte, "%d     %d  ", positionX, positionY);
 				GLCD_DrawString(5,20,texte);
 				
-				GLCD_DrawPixel(positionX, positionY);
-				GLCD_DrawPixel(positionX+1, positionY);
-				GLCD_DrawPixel(positionX, positionY+1);
-				GLCD_DrawPixel(positionX+1, positionY+1);
-				GLCD_DrawPixel(positionX-1, positionY-1);
-				GLCD_DrawPixel(positionX-1, positionY);
-				GLCD_DrawPixel(positionX, positionY-1);
-				GLCD_DrawPixel(positionX-1, positionY+1);
-				GLCD_DrawPixel(positionX+1, positionY-1);
+				effacePoint(positionXavant, positionYavant);
+				affichePoint(positionX, positionY);
+				
+				positionXavant = positionX;
+				positionYavant = positionY;
+
 			}
 
-
 	}
-	
 }	
-			
-
-
-
