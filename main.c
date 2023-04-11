@@ -96,7 +96,7 @@ int main (void) {
 	GLCD_DrawHLine(50, 50, 200);GLCD_DrawHLine(50, 120, 200);
 	GLCD_DrawVLine(50, 50, 70);GLCD_DrawVLine(250, 50, 70);
 	
-	
+	GLCD_DrawString(130,80,"Bat G");
 
   // create 'thread' functions that start executing,
   // example: tid_name = osThreadCreate (osThread(name), NULL);
@@ -203,8 +203,8 @@ void tache2(void const* argument)
 			{
 				positionX = 50+((latitude  - 4847.217773)*3333.37270904);
 				positionY = 50+((longitude - 219.645004)*2080.1539575) ;
-				sprintf(texte, "%d     %d  ", positionX, positionY);
-				GLCD_DrawString(5,20,texte);
+				//sprintf(texte, "%d     %d  ", positionX, positionY);
+				//GLCD_DrawString(5,20,texte);
 				
 				effacePoint(positionXavant, positionYavant);
 				affichePoint(positionX, positionY);
